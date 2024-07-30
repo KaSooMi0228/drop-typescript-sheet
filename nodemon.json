@@ -1,0 +1,12 @@
+{
+  "watch": [
+    "src",
+    "templates"
+  ],
+  "ext": "ts,tsx,html",
+  "ignore": [
+    "src/**/*.spec.ts"
+  ],
+  "exec": "tsx -r ignore-styles src/server/runServer.ts",
+  "signal": "SIGTERM"
+}

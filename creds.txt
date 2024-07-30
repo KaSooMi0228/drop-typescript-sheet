@@ -1,0 +1,31 @@
+The app identifier has been successfully created.
+Client Id:  	b7f0beee-d9a4-48f2-81d2-4349522157d8
+Client Secret:  	gQT3vnIRjrs+PMQWXJ5Jg54Srpj43Kklc4Q/esWudaU=
+Title:  	Dropsheet
+App Domain:  	dropsheet.remdal.com
+Redirect URI:  	https://dropsheet.remdal.com
+
+Go Here:
+
+https://remdalpr.sharepoint.com/sites/Dropsheet/_layouts/15/appregnew.aspx
+
+Click Generate on buttons, fill in format. 
+Clear Create.
+
+Copy settings into sharepoint.ts
+
+Go Here:
+
+https://remdalpr.sharepoint.com/sites/Dropsheet/_layouts/15/appinv.aspx
+
+Copy client in.
+Click Lookup
+
+Paste in 
+
+<AppPermissionRequests AllowAppOnlyPolicy="true"><AppPermissionRequest
+Scope="http://sharepoint/content/sitecollection/web"
+Right="Manage"/></AppPermissionRequests>
+
+Click Create
+

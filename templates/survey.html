@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Remdal Customer Survey</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/cerulean/bootstrap.min.css" integrity="sha384-3fdgwJw17Bi87e1QQ4fsLn4rUFqWw//KU0g8TvV6quvahISRewev6/EocKNuJmEw" crossorigin="anonymous">
+    <style>
+        .answer-comment {
+            width: 100%;
+            resize: none;
+            overflow-y: hidden;
+        }
+        #dropsheet-customer-survey .container {
+            max-width: 960px;
+            margin-top: 140px;
+            margin-bottom: 10em;
+        }
+        .section-name {
+            text-transform: uppercase;
+            text-align: center;
+            color: #00539f;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1;
+        }
+        .survey-question {
+            margin-top: .5em;
+            margin-bottom: .5em;
+        }
+        #dropsheet-customer-survey .question-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .form-group-comment {
+            margin-top: 1em;
+        }
+        .explain {
+            display: none;
+            color: #f22;
+        }
+
+        #progress {
+            border-radius: 999px;
+            width: 50%;
+            text-align: center;
+            position: relative;
+            border: solid 1px black;
+            overflow: hidden;
+        }
+        #progress-inner {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            background-color: #2fa4e7;
+        }
+        #progress-text {
+            position: relative;
+            z-index: 3
+        }
+        .button-block {
+            width: 100%;
+            display: flex;
+        }
+        .next-button {
+            margin-left: auto;
+        }
+
+    </style>
+  </head>
+  <body id="dropsheet-customer-survey">
+    <nav class="navbar navbar-expand-leg navbar-light bg-light">
+        <img class="navbar-brand" src="https://www.remdal.com/wp-content/themes/remdal_2018/img/logo.png" width="100" height="81">
+        <div id="progress">
+            <div id="progress-inner"></div>
+            <span id="progress-text"></span>
+        </div>
+        
+    </nav>
+    <div class="container">
+        <form method="post" enctype="multipart/form-data">
+            <input type="hidden" name="id" value="{{survey.id}}">
+            <div class="section" id="intro-section">
+            <h1>Thank you for taking this survey.</h1>
+            <p>We appreciate your time and feedback. Your answers will help us strengthen and grow our service!</p>
+            <div class="form-group">
+                <label for="client-id">Client's Name</label>
+                <input class="form-control" type="text" disabled id="client-id" value="{{project.customer}}">
+            </div>
+            <div class="form-group">
+                <label for="address-0">Site Address</label>
+                {% for address in addresses %}
+                <input class="form-control" type="text" disabled id="address-{{loop.index0}}" value="{{address}}">
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                <label for="contact-name">Survey Contact Name</label>
+                <input class="form-control" type="text" disabled id="address-{{loop.index0}}" value="{{survey.contact.name}}">
+            </div>
+            <div class="form-group">
+                <label for="contact-name">Survey Contact Email</label>
+                <input class="form-control" type="text" disabled id="address-{{loop.index0}}" value="{{survey.contact.email}}">
+            </div>
+            <button class="btn btn-primary page-button next-button" data-target="section-0">Next Section</button>
+            </div>
+            {% for section in survey.sections %} 
+            <div class="section" id="section-{{loop.index0}}" style="display: none">
+                <h1 class="section-name">{{section.name}}</h1>
+                {% for question in section.questions %}
+                <div class="card survey-question">
+                    <div class="card-body">
+                        <h2 class="card-title question-text">{{question.question}}</h2>
+                        <div class="card-text">
+                            {% if question.answers.length == 10 %}
+                            <div style="display: flex; justify-content: space-between">
+                            {% endif %}
+                            {% for answer in question.answers %}
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="{{question.id}}" id="{{answer.id}}" value="{{answer.id}}" {% if answer.id == question.selectedAnswer %}checked{%endif%} {% if answer.score != question.answers[0].score and question.answers.length != 10 and question.answers.length != 0 %}data-must-comment=true{%endif%}>
+                                <label class="form-check-label" for="{{answer.id}}">
+                                    {{answer.name}}
+                                </label>
+                            </div>
+                            {% endfor %}
+                            {% if question.answers.length == 10 %}
+                            </div>
+                            {% endif %}
+                            <div class="form-group form-group-comment">
+                                {% if questions.answers.length > 0 %}
+                                <label for="{{question.id}}-txt">Tell us more!</label>
+                                {% endif %}
+                                <textarea id="{{question.id}}-txt" name="{{question.id}}-txt" class="answer-comment">{{question.comment}}</textarea>
+                            </div>
+                            <div class="explain">Please explain your rating before moving on</div>
+                        </div>
+                    </div>
+                </div>
+
+                {% endfor %}
+                {% if loop.last %}
+                    <div class="card survey-question" id="email-question">
+                        <div class="card-body">
+                            <h2 class="card-title question-text">Please confirm your email address</h2>
+                            <div class="card-text">
+                                <div class="form-group">
+                                    <input class="form-control" type="text" name="email" id="email" value="{{email}}">
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+    
+                {% endif%}
+                <div class="button-block">
+                    {% if loop.first %}
+                    <button class="btn btn-primary page-button" data-target="intro-section">Previous Section</button>
+                    {% else %}
+                    <button class="btn btn-primary page-button" data-target="section-{{loop.index0-1}}">Previous Section</button>
+                    {% endif %}
+                    {% if not loop.last %}
+                        <button class="btn btn-primary page-button next-button" data-target="section-{{loop.index0+1}}">Next Section</button>
+                    {% endif %}
+                    {% if loop.last %}
+                        <button type="submit" class="btn btn-primary next-button">Submit Survey</button>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </form>
+    </div>
+    <script>
+        function all(selector, cb) {
+            document.querySelectorAll(selector).forEach(cb)
+        }
+        function on(selector, event, cb) {
+            all(selector, x => x.addEventListener(event, cb))
+        }
+        function updateStatus() {
+            console.log("update")
+            let ready = true;
+            let readyCount = 0;
+            let totalCount = 0;
+            all(".survey-question,.next-button", (element) => {
+                if (element.tagName === "BUTTON") {
+                    element.disabled = !ready;
+                } else if (element.id === "email-question") {
+                    console.log(element, element.value)
+                    const input = element.querySelector("input")
+                    input.disabled = !ready;
+                    totalCount += 1;
+                    if (ready) {
+                        if (input.value != "") {
+                            readyCount += 1;
+                        } else {
+                            ready = false;
+                        }
+                    }
+                } else {
+                    totalCount += 1;
+                    element.querySelectorAll("input,textarea").forEach(element => {
+                        element.disabled = !ready;
+                    })
+                    element.querySelectorAll(".explain").forEach(element => {
+                        element.style.display = undefined;
+                    })
+                    if (ready) {
+                        const selectedInput = element.querySelector("input:checked")
+                        const allInputs = element.querySelectorAll("input")
+                        if (selectedInput == null && allInputs.length != 0) {
+                            ready = false;
+                        } else if (selectedInput && selectedInput.dataset.mustComment) {
+                            const comment = element.querySelector("textarea")
+                            element.querySelector(".explain").style.display = 'block';
+                            if (comment.value.trim() === "") {
+                                readyCount += 1;
+                            } else {
+                                element.querySelector(".explain").style.display = 'none';
+                                readyCount += 1;
+                            }
+                        } else {
+                            element.querySelector(".explain").style.display = 'none';
+                            readyCount += 1;
+                        }
+
+                    }
+                }
+            })
+
+            document.getElementById("progress-text").innerText = readyCount + " / " + totalCount
+            document.getElementById("progress-inner").style.width = (readyCount / totalCount) * 100 + "%"
+        }
+        function clickPageButton(event) {
+            event.preventDefault();
+            all(".section", x => x.style.display = 'none')
+            console.log(event.target.dataset)
+            document.getElementById(event.target.dataset.target).style.display = 'block';
+            window.scrollTo(0, 0)
+            all("textarea", x => updateHeight.call(x))
+        }
+        function updateHeight() {
+            this.style.height = 0;
+            this.style.height = this.scrollHeight + "px";
+            updateStatus()
+        }
+        all("textarea", x => updateHeight.call(x))
+        on("textarea", "input", updateHeight)
+        on(".survey-question input", "input", updateStatus);
+        on("button.page-button", "click", clickPageButton);
+        
+        setInterval(function() {
+            fetch("/survey/presave", {
+            method: "POST", body: new FormData(document.querySelector("form"))
+            })
+        }, 10000)
+        updateStatus()
+    </script>
+  </body>
+</html>

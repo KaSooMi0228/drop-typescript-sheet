@@ -1,0 +1,81 @@
+{
+  "name": "jexl",
+  "version": "2.2.2",
+  "description": "Javascript Expression Language: Powerful context-based expression parser and evaluator",
+  "main": "lib/Jexl.js",
+  "scripts": {
+    "format": "prettier --write '**/*.{json,js,md}'",
+    "lint": "eslint '**/*.js'",
+    "test": "npm run lint && NODE_PATH=./ RESOURCES_PATH=./lib jest --coverage --colors",
+    "test:watch": "NODE_PATH=./ RESOURCES_PATH=./lib jest --watchAll --colors"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TomFrost/jexl"
+  },
+  "keywords": [
+    "JSON",
+    "expression",
+    "evaluator",
+    "parser",
+    "target",
+    "context",
+    "jsep",
+    "filter",
+    "selector"
+  ],
+  "author": "Tom Shawver <tom@frosteddesign.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TomFrost/jexl/issues"
+  },
+  "homepage": "https://github.com/TomFrost/jexl",
+  "devDependencies": {
+    "eslint": "^6.3.0",
+    "eslint-config-prettier": "^6.1.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "husky": "^3.0.4",
+    "jest": "^24.9.0",
+    "lint-staged": "^9.2.5",
+    "prettier": "^1.18.2"
+  },
+  "eslintIgnore": [
+    "node_modules",
+    "coverage"
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*.{md,json}": [
+      "prettier --write",
+      "git add"
+    ],
+    "**/*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "verbose": true,
+    "testPathIgnorePatterns": [],
+    "coverageThreshold": {
+      "global": {
+        "branches": 85,
+        "functions": 90,
+        "lines": 95,
+        "statements": 95
+      }
+    },
+    "collectCoverageFrom": [
+      "lib/**/*.js"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "./lib/PromiseSync.js"
+    ]
+  }
+}

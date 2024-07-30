@@ -1,0 +1,8 @@
+/node_modules/
+/.magic-cache.json
+/dist/
+/data/
+/build/
+/data.db/
+.~lock*
+.env

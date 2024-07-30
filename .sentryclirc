@@ -1,0 +1,7 @@
+[auth]
+token=87a6d6f1267e4a7ca25b7162ddca6d20b2821cd26ee0463aa2bbc4c803181272
+
+[defaults]
+url=https://sentry.io/
+org=remdal
+project=dropsheet

@@ -1,0 +1,256 @@
+.relative-portal .react-date-picker__inputGroup {
+  min-width: 0;
+}
+
+.relative-portal > div {
+  z-index: 10000
+}
+
+ol.breadcrumb {
+  background: none;
+  vertical-align: middle;
+  margin: 0px;
+}
+
+input.decimal-widget {
+  max-width: 8em;
+}
+
+input.decimal-widget[type="number"]::-webkit-inner-spin-button {
+  margin-left: 5px;
+}
+input.decimal-widget[type="number"] {
+  padding-right: 0.75em;
+}
+
+.f-datagrid
+  .fixedDataTableLayout_header
+  .public_fixedDataTableCell_cellContent {
+  text-align: center;
+  cursor: pointer;
+}
+
+.f-sideaction .public_fixedDataTableCell_cellContent {
+  text-align: "center";
+}
+
+.f-topaction .public_fixedDataTableCell_cellContent {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.f-topaction .public_fixedDataTableCell_wrap3 {
+  height: 100%;
+}
+
+.breadcrumb {
+  padding: 0px;
+}
+
+#hamburger-toggle::after {
+  display: none;
+}
+
+.fixedDataTableCellLayout_wrap3 {
+  vertical-align: top;
+}
+
+.form-group label {
+  font-weight: bold;
+}
+
+.f-datagrid .fixedDataTableCellLayout_main[role=columnheader],
+.f-datagrid .fixedDataTableCellGroupLayout_cellGroup,
+.f-datagrid .fixedDataTableRowLayout_main {
+  overflow: unset;
+}
+
+.openProjectModal {
+  max-width: unset;
+  width: calc(100% - 40px);
+}
+
+.row {
+  margin-right: 0px !important;
+}
+
+.sticky-headers th {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: white;
+  box-shadow: 0 4px 2px -2px gray;
+}
+
+.center-labels label {
+  text-align: center;
+}
+
+.ReactModal__Overlay {
+  z-index: 100;
+}
+.ReactModal__Content {
+  display: flex;
+  flex-direction: column;
+}
+
+.checkbox-widget input {
+  -ms-transform: scale(2); /* IE */
+  -moz-transform: scale(2); /* FF */
+  -webkit-transform: scale(2); /* Safari and Chrome */
+  -o-transform: scale(2); /* Opera */
+  transform: scale(2);
+  padding: 10px;
+  width: 40px;
+}
+.checkbox-widget label {
+  padding-left: 20px;
+}
+
+.field-row {
+  display: flex;
+}
+
+.field-row > * + * {
+  padding-left: 1em;
+}
+
+.field-row > * {
+  flex-grow: 1;
+  flex-basis: 0;
+}
+
+.field-row.no-expand > * {
+  flex-grow: 0;
+  flex-basis: auto;
+}
+.big-dropdown .inside svg {
+  width: 20px;
+  height: 20px;
+}
+
+.big-dropdown svg {
+  width: 8em;
+  height: 8em;
+}
+.big-dropdown div {
+  flex-wrap: nowrap;
+}
+.big-dropdown {
+  height: auto !important;
+}
+
+.ck-content .table td {
+  vertical-align: middle;
+}
+
+.react-date-picker__calendar {
+  z-index: 1000 !important
+}
+
+.form-control.is-invalid {
+  border-width: 2px;
+}
+
+.f-datagrid .public_fixedDataTableRow_highlighted .public_fixedDataTableCell_main {
+  background-color: #e6e7e8;
+}
+
+.page-item.lock-button .page-link {
+  padding: .2em
+}
+
+.redate-form .react-datetime-picker__wrapper {
+  padding: .5em;
+}
+.tab-content {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  flex: 1;
+}
+.pagination .page-item .page-link {
+  height: 100%;
+}
+
+.address-typeahead input.form-control {
+  border: none;
+  height: auto;
+  padding: 0px;
+}
+
+.address-typeahead .rbt-menu.dropdown-menu.show {
+  width: auto !important;
+}
+
+#warranty-project-details #generate-warranty-document {
+  display: none;
+}
+
+.customer-survey-template .special-buttons {
+  display: none;
+}
+
+.report-node {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,75%);
+  z-index: 10000;
+}
+
+.report-node div {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  padding: 5em;
+  border-radius: 45px;
+  background: white;
+  transform: translate(-50%, -50%);
+
+}
+.datepicker.is-valid .react-datetime-picker__wrapper {
+    border-color: #73a839;
+    padding-right: calc(1.5em + 0.75rem);
+    background-image: url("data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%278%27 height=%278%27 viewBox=%270 0 8 8%27%3e%3cpath fill=%27%2373a839%27 d=%27M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z%27/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right calc(0.375em + 0.1875rem) center;
+    background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+.datepicker.is-empty .react-datetime-picker__wrapper {
+    border-color: #c71c22;
+    padding-right: calc(1.5em + 0.75rem);
+    background-image: url("data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2712%27 height=%2712%27 fill=%27none%27 stroke=%27%23c71c22%27 viewBox=%270 0 12 12%27%3e%3ccircle cx=%276%27 cy=%276%27 r=%274.5%27/%3e%3cpath stroke-linejoin=%27round%27 d=%27M5.8 3.6h.4L6 6.5z%27/%3e%3ccircle cx=%276%27 cy=%278.2%27 r=%27.6%27 fill=%27%23c71c22%27 stroke=%27none%27/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right calc(0.375em + 0.1875rem) center;
+    background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+
+
+.react-datetime-picker__wrapper {
+    padding: 0.275rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+@media(max-width: 768px) {
+  html {
+    font-size: 15pt;
+  }
+}
+
+.space-buttons button + button{
+  margin-left: 1em;
+}

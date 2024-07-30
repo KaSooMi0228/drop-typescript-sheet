@@ -1,0 +1,77 @@
+import { UNACCEPTED_SOURCE } from "./AcceptRoleWidget.widget";
+import { UNACCEPTED_WARRANTY_REVIEW_SOURCE } from "./AcceptWarrantyReviewRoleWidget.widget";
+import { ACCESS_REQUESTED_SOURCE } from "./access-requests";
+import { APPROVE_MARGIN_VARIANCE_SOURCE } from "./approve-margin-variance";
+import { APPROVED_ESTIMATE_COPY_SOURCE } from "./approved-copy";
+import { CUSTOMER_SURVEY_COMPLETED_SOURCE } from "./completed-customer-survey";
+import { PROJECT_CONFIRM_RESUME_SOURCE } from "./ConfirmProjectResume";
+import { PROJECT_CONFIRM_START_SOURCE } from "./ConfirmProjectStart";
+import { ESTIMATE_DELAYED_SOURCE } from "./estimate-delayed";
+import { PENDING_CONTACT_FOLLOW_UP_SOURCE } from "./FollowUpWidget.widget";
+import { LATE_ESTIMATE_SOURCE } from "./late-estimate";
+import { CF_REQUIRED_SOURCE } from "./missing-cf";
+import { MISSING_DETAIL_SHEET_SOURCE } from "./missing-detail-sheet";
+import { OLD_THREAD_SOURCE } from "./OldThreadWidget.widget";
+import { PENDING_QUOTE_SOURCE } from "./pending-quotes";
+import { PROJECT_READY_FOR_PAYOUT_SOURCE } from "./project-ready-for-payout";
+import { PROJECT_UNLOCK_REQUEST_SOURCE } from "./project-unlock-request";
+import { APPROVED_QUOTATION_COPY_SOURCE } from "./quotation-approved-copy";
+import { UNAPPROVED_QUOTATION_COPY_SOURCE } from "./quotation-unapproved-copy";
+import { UNACCEPTED_MANAGER_SOURCE } from "./unaccepted-manager";
+import { UNADDED_TO_ACCOUNTING_SOURCE } from "./unadded-to-accounting";
+import { UNADDED_TO_ACCOUNTING_INVOICE_SOURCE } from "./unadded-to-accounting-invoice";
+import { UNADDED_TO_ACCOUNTING_PAYOUT_SOURCE } from "./unadded-to-accounting-payout";
+import { UNAPPROVED_ESTIMATE_COPY_SOURCE } from "./unapproved-copy";
+import { MISSING_ESTIMATOR_SOURCE } from "./unassigned-estimate";
+import {
+    UNGENERATED_COMPLETION_SURVEY,
+    UNGENERATED_CORE_VALUE_NOTICE,
+    UNGENERATED_DETAIL_SHEET_SOURCE,
+    UNGENERATED_PAYOUT,
+    UNGENERATED_QUOTATION_SOURCE,
+    UNGENERATED_SITE_VISIT_REPORT_SOURCE,
+} from "./ungenerated";
+import { UNAPPROVED_WARANTY_EXEMPTION } from "./warranty-not-required-approval";
+import { WARRANTY_REMEDIATION_WORK_REQUIRED_SOURCE } from "./WarrantyRemediationWorkRequired.widget";
+import { WARRANTY_REVIEW_REMEDIATION_OVERDUE_SOURCE } from "./WarrantyReviewRemediationOverdue.widget copy";
+import { WARRANTY_REVIEW_REMEDIATION_UPCOMING_SOURCE } from "./WarrantyReviewRemediationUpcoming";
+
+export const NOTIFICATION_SOURCES = [
+    OLD_THREAD_SOURCE,
+    ACCESS_REQUESTED_SOURCE,
+    LATE_ESTIMATE_SOURCE,
+    PENDING_QUOTE_SOURCE,
+    UNACCEPTED_MANAGER_SOURCE,
+    UNAPPROVED_WARANTY_EXEMPTION,
+    ESTIMATE_DELAYED_SOURCE,
+    CF_REQUIRED_SOURCE,
+    MISSING_ESTIMATOR_SOURCE,
+    UNACCEPTED_SOURCE,
+
+    UNACCEPTED_WARRANTY_REVIEW_SOURCE,
+    UNADDED_TO_ACCOUNTING_SOURCE,
+    UNADDED_TO_ACCOUNTING_INVOICE_SOURCE,
+    UNADDED_TO_ACCOUNTING_PAYOUT_SOURCE,
+    MISSING_DETAIL_SHEET_SOURCE,
+    UNAPPROVED_ESTIMATE_COPY_SOURCE,
+    UNAPPROVED_QUOTATION_COPY_SOURCE,
+    APPROVED_ESTIMATE_COPY_SOURCE,
+    APPROVED_QUOTATION_COPY_SOURCE,
+    PROJECT_UNLOCK_REQUEST_SOURCE,
+    UNGENERATED_QUOTATION_SOURCE,
+    UNGENERATED_DETAIL_SHEET_SOURCE,
+    UNGENERATED_SITE_VISIT_REPORT_SOURCE,
+    UNGENERATED_CORE_VALUE_NOTICE,
+    UNGENERATED_PAYOUT,
+    UNGENERATED_COMPLETION_SURVEY,
+    PENDING_CONTACT_FOLLOW_UP_SOURCE,
+    PROJECT_READY_FOR_PAYOUT_SOURCE,
+    CUSTOMER_SURVEY_COMPLETED_SOURCE,
+    APPROVE_MARGIN_VARIANCE_SOURCE,
+    WARRANTY_REVIEW_REMEDIATION_UPCOMING_SOURCE,
+    WARRANTY_REVIEW_REMEDIATION_OVERDUE_SOURCE,
+    WARRANTY_REMEDIATION_WORK_REQUIRED_SOURCE,
+
+    PROJECT_CONFIRM_START_SOURCE,
+    PROJECT_CONFIRM_RESUME_SOURCE,
+];

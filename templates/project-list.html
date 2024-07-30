@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Remdal Projects</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/cerulean/bootstrap.min.css"
+      integrity="sha384-3fdgwJw17Bi87e1QQ4fsLn4rUFqWw//KU0g8TvV6quvahISRewev6/EocKNuJmEw"
+      crossorigin="anonymous"
+    />
+    <style></style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-leg navbar-light bg-light">
+      <img
+        class="navbar-brand"
+        src="https://www.remdal.com/wp-content/themes/remdal_2018/img/logo.png"
+        width="100"
+        height="81"
+      />
+    </nav>
+    <ul class="list-group">
+      {% for project in projects %}
+      <a
+        class="list-group-item"
+        href="/server/project-files/{{project.project_number}}"
+        >{{project.project_number}} - {{project.address}}</a
+      >
+      {% endfor %}
+    </ul>
+  </body>
+</html>
